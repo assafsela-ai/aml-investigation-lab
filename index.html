@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f5">
+  <meta name="description" content="Investigate two simulated AML alerts, trace transactions and check the evidence behind an AI-generated claim.">
+  <title>AML Investigation Lab</title>
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Skip to investigation</a>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <div class="brand"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span> AML Investigation Lab</div>
+      <a href="https://github.com/assafsela-ai/aml-investigation-lab#install-the-skills">Get the skills</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="intro">
+      <div>
+        <h1>Investigate an AML alert</h1>
+        <p>Follow the money and check what the records support before you decide.</p>
+      </div>
+      <span class="dataset">Synthetic training data</span>
+    </div>
+    <div id="lab" hidden>
+      <div class="toolbar">
+        <nav id="stages" aria-label="Investigation steps">
+          <button type="button" data-stage="queue">Alert queue</button>
+          <button type="button" data-stage="flow" aria-current="step">Money flow</button>
+          <button type="button" data-stage="ownership">Ownership</button>
+          <button type="button" data-stage="review">Evidence check</button>
+        </nav>
+        <div class="case-picker">
+          <label for="case-select">Active case</label>
+          <select id="case-select"></select>
+        </div>
+      </div>
+      <div id="workspace" class="workspace" tabindex="-1">
+        <section id="stage" aria-labelledby="stage-title"></section>
+        <aside id="inspector" aria-labelledby="inspector-title"></aside>
+      </div>
+      <div id="announcement" class="visually-hidden" role="status" aria-atomic="true"></div>
+    </div>
+    <p id="loading" role="status">Loading training cases…</p>
+    <noscript><p>This lab needs JavaScript to open the training cases.</p></noscript>
+    <footer class="footer">
+      <a href="./data/cases.json" download>Download training data</a>
+      <a href="https://assafsela-ai.github.io/Assaf-Sela/work/aml-investigation-lab/">Portfolio case study</a>
+    </footer>
+  </main>
+</body>
+</html>

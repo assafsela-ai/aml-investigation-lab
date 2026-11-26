@@ -1,0 +1,48 @@
+{
+  "queue": [
+    {"id":"AML-1042","name":"Northstar Equipment","rules":76,"context":96,"priority":true},
+    {"id":"AML-1043","name":"Harbor Office Supply","rules":97,"context":46,"priority":false},
+    {"id":"AML-1044","name":"Orchid Services","rules":93,"context":62,"priority":false},
+    {"id":"AML-1045","name":"Marlin Studio","rules":89,"context":55,"priority":false},
+    {"id":"AML-1046","name":"Maple Distribution","rules":81,"context":92,"priority":true},
+    {"id":"AML-1047","name":"Birch Workspace","rules":70,"context":77,"priority":false},
+    {"id":"AML-1048","name":"Juniper Equipment","rules":66,"context":85,"priority":true},
+    {"id":"AML-1049","name":"Alder Logistics","rules":60,"context":58,"priority":false}
+  ],
+  "cases": [
+    {
+      "id":"AML-1042",
+      "name":"Northstar Equipment",
+      "accounts":["River Market Bank","Northstar Equipment","Eastgate Trading"],
+      "transfers":[
+        {"id":"TX-1042-01","type":"transfer","title":"Incoming payment","date":"2026-10-12 09:12 UTC","from":"River Market Bank","to":"Northstar Equipment","amount":48200,"currency":"USD","text":"River Market Bank transferred USD 48,200 to Northstar Equipment. Reference: RM-8821."},
+        {"id":"TX-1042-02","type":"transfer","title":"Outgoing payment","date":"2026-10-12 09:54 UTC","from":"Northstar Equipment","to":"Eastgate Trading","amount":47800,"currency":"USD","text":"Northstar Equipment transferred USD 47,800 to Eastgate Trading. The transfer record contains no initiator field."}
+      ],
+      "documents":[
+        {"id":"DOC-1042-A","type":"ownership","title":"Northstar registry extract","date":"2026-10-12","subject":"Northstar Equipment","owner":"Maya Levin","stake":60,"asOf":"2026-10-12","text":"Line 14 · As of 12 October 2026, Maya Levin holds 60% of Northstar Equipment's voting shares."},
+        {"id":"DOC-1042-B","type":"ownership","title":"Northstar ownership declaration","date":"2026-10-12","subject":"Northstar Equipment","owner":"Maya Levin","stake":30,"asOf":"2026-10-12","text":"Line 08 · As of 12 October 2026, Maya Levin holds 30% of Northstar Equipment's voting shares."}
+      ],
+      "claims":[
+        {"text":"Northstar Equipment sent $47,800 to Eastgate Trading.","source":"TX-1042-02","fields":{"from":"Northstar Equipment","to":"Eastgate Trading","amount":47800,"currency":"USD"},"gap":"The visible sources do not contain the matching transfer."},
+        {"text":"Maya Levin personally initiated the $47,800 transfer.","source":"TX-1042-02","fields":{"initiator":"Maya Levin","amount":47800,"currency":"USD"},"gap":"The cited transfer records the amount and the accounts. It has no initiator field. An ownership record cannot establish who initiated a transfer."}
+      ]
+    },
+    {
+      "id":"AML-1043",
+      "name":"Harbor Office Supply",
+      "accounts":["River Market Bank","Harbor Office Supply","Harbor Freight Services"],
+      "transfers":[
+        {"id":"TX-1043-01","type":"transfer","title":"Incoming payment","date":"2026-10-12 10:03 UTC","from":"River Market Bank","to":"Harbor Office Supply","amount":48400,"currency":"USD","text":"River Market Bank transferred USD 48,400 to Harbor Office Supply. Reference: RM-8830."},
+        {"id":"TX-1043-02","type":"transfer","title":"Outgoing payment","date":"2026-10-12 10:46 UTC","from":"Harbor Office Supply","to":"Harbor Freight Services","amount":48000,"currency":"USD","text":"Harbor Office Supply transferred USD 48,000 to Harbor Freight Services. Reference: HF-721."}
+      ],
+      "documents":[
+        {"id":"DOC-1043-A","type":"settlement","title":"Settlement reconciliation","date":"2026-10-12","transaction":"TX-1043-02","reference":"HF-721","purpose":"supplier settlement","amount":48000,"currency":"USD","text":"Line 21 · HF-721 reconciles the USD 48,000 outgoing transfer to a scheduled supplier settlement for Harbor Freight Services."},
+        {"id":"DOC-1043-B","type":"ownership","title":"Harbor registry extract","date":"2026-10-12","subject":"Harbor Office Supply","owner":"Rory Hale","stake":65,"asOf":"2026-10-12","text":"Line 12 · As of 12 October 2026, Rory Hale holds 65% of Harbor Office Supply's voting shares."}
+      ],
+      "claims":[
+        {"text":"Harbor Office Supply sent $48,000 to Harbor Freight Services.","source":"TX-1043-02","fields":{"from":"Harbor Office Supply","to":"Harbor Freight Services","amount":48000,"currency":"USD"},"gap":"The visible sources do not contain the matching transfer."},
+        {"text":"The settlement record links the outgoing transfer to a scheduled supplier payment.","source":"DOC-1043-A","fields":{"transaction":"TX-1043-02","purpose":"supplier settlement","amount":48000,"currency":"USD"},"gap":"The visible sources do not establish the purpose of the outgoing transfer."}
+      ]
+    }
+  ]
+}
